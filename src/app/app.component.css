@@ -1,0 +1,11 @@
+mat-form-field{
+    width: 20rem;
+}
+
+mat-spinner{
+    margin: 8rem auto !important;
+}
+
+.page{
+    margin-top: 3rem;
+}
