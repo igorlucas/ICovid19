@@ -1,11 +1,27 @@
-mat-form-field{
+mat-form-field {
     width: 20rem;
 }
 
-mat-spinner{
+mat-spinner {
     margin: 8rem auto !important;
 }
 
-.page{
+.page {
     margin-top: 3rem;
+}
+
+
+nav {
+    background-color: rgb(2, 2, 56);
+}
+.nav_item{
+    color: white;
+}
+.menu {
+    color     : aliceblue;
+    margin-top: 20px;
+}
+
+.menu a:hover {
+    font-size: larger;
 }

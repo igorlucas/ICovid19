@@ -1,39 +1,60 @@
-<div class="container page">
-  <div class="chart_filter">
-    <mat-form-field>
-      <mat-label>Datas</mat-label>
-      <mat-select [(value)]="filtro.campoData">
-        <mat-option *ngFor="let df of datasFiltro" [value]="df">
-          {{df.descricao}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Data Início</mat-label>
-      <input matInput [matDatepicker]="picker1" name="dataInicio" [(ngModel)]="filtro.dataInicio">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Data Fim</mat-label>
-      <input matInput [matDatepicker]="picker2" name="dataFim" [(ngModel)]="filtro.dataFim">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="!filtro.dataFim" (click)="filtrar()">Filtrar</button>
-  </div>
-  <div class="chart">
-    <div class="chart_title">
-      <div>{{filtro.campoData.descricao}}</div>
-      <div *ngIf="filtro.dataInicio && filtro.dataFim">{{filtro.dataInicio | date}} até {{filtro.dataFim | date}}</div>
-    </div>
-    <div class="chart_body">
-      <div *ngIf="indicadores; else elseBlock">
-        <app-line-chart *ngIf="indicadores" id="1" [data]="indicadores"></app-line-chart>
+<mat-sidenav-container [ngStyle]='containerStyle'>
+  <mat-sidenav [ngStyle]="sidenavStyle" #sidenav [(opened)]="opened" mode="side">
+    <mat-nav-list>
+      <div class="container text-center menu">
+        <p>Indicadores</p>
+        <hr>
+        <a class="nav_item" mat-list-item routerLink="#">Data x Quantidade</a>
       </div>
-      <ng-template #elseBlock>
-        <mat-spinner></mat-spinner>
-      </ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div (click)="sidenav.toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </div>
+    </nav>
+    <!-- <div class="container">
+      <router-outlet></router-outlet>
+    </div> -->
+    <div class="container page">
+      <div class="chart_filter">
+        <mat-form-field>
+          <mat-label>Datas</mat-label>
+          <mat-select [(value)]="filtro.campoData">
+            <mat-option *ngFor="let df of datasFiltro" [value]="df">
+              {{df.descricao}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Data Início</mat-label>
+          <input matInput [matDatepicker]="picker1" name="dataInicio" [(ngModel)]="filtro.dataInicio">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Data Fim</mat-label>
+          <input matInput [matDatepicker]="picker2" name="dataFim" [(ngModel)]="filtro.dataFim">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!filtro.dataFim" (click)="filtrar()">Filtrar</button>
+      </div>
+      <div class="chart">
+        <div class="chart_title">
+          <div>{{filtro.campoData.descricao}}</div>
+          <div *ngIf="filtro.dataInicio && filtro.dataFim">{{filtro.dataInicio | date}} até {{filtro.dataFim | date}}</div>
+        </div>
+        <div class="chart_body">
+          <div *ngIf="indicadores; else elseBlock">
+            <app-line-chart *ngIf="indicadores" id="1" [data]="indicadores"></app-line-chart>
+          </div>
+          <ng-template #elseBlock>
+            <mat-spinner></mat-spinner>
+          </ng-template>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

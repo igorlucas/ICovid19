@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Indices } from './models/Indices';
+import { Indices } from './models/indices';
 import { CasosCovidCeService } from './services/casos-covid-ce.service';
 import { Filtro } from './models/filtro';
 
@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   indicadores: any[];
   datasFiltro: any[];
   filtro: Filtro;
+  opened:any;
   constructor(private casosCovidService: CasosCovidCeService) {
   }
 
@@ -74,6 +75,16 @@ export class AppComponent implements OnInit {
   filtrar(){
     this.indicadores = null;
     this.loadIndicadores();
+  }
+
+  // stilos
+  containerStyle = {
+    'height': `${screen.height}px`
+  }
+
+  sidenavStyle = {
+    'background-color': 'rgb(2, 2, 56)',
+    'width': `200px`
   }
 }
 
