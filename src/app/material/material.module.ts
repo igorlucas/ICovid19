@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import {
   MatButtonModule,
   MatButtonToggleModule,
@@ -60,6 +61,7 @@ const Material = [
   MatDialogModule,
   MatTableModule,
   MatSortModule,
+  MatSidenavModule,
   MatPaginatorModule
 ];
 

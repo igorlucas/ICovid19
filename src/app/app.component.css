@@ -14,6 +14,9 @@ mat-spinner {
 nav {
     background-color: rgb(2, 2, 56);
 }
+.navbar{
+    color: white;
+}
 .nav_item{
     color: white;
 }
@@ -22,6 +25,6 @@ nav {
     margin-top: 20px;
 }
 
-.menu a:hover {
+/* .menu a:hover {
     font-size: larger;
-}
+} */

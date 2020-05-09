@@ -87,4 +87,3 @@ export class AppComponent implements OnInit {
     'width': `200px`
   }
 }
-
